@@ -31,8 +31,10 @@
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            usernameTextBox = new TextBox();
+            passwordTextBox = new TextBox();
+            passwordAgainTextBox = new TextBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -41,8 +43,9 @@
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "register";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -62,27 +65,45 @@
             label2.TabIndex = 2;
             label2.Text = "username";
             // 
-            // textBox1
+            // usernameTextBox
             // 
-            textBox1.Location = new Point(352, 119);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 3;
+            usernameTextBox.Location = new Point(352, 119);
+            usernameTextBox.Name = "usernameTextBox";
+            usernameTextBox.Size = new Size(150, 31);
+            usernameTextBox.TabIndex = 3;
             // 
-            // textBox2
+            // passwordTextBox
             // 
-            textBox2.Location = new Point(353, 171);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
-            textBox2.TabIndex = 4;
+            passwordTextBox.Location = new Point(353, 171);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Size = new Size(150, 31);
+            passwordTextBox.TabIndex = 4;
+            // 
+            // passwordAgainTextBox
+            // 
+            passwordAgainTextBox.Location = new Point(353, 220);
+            passwordAgainTextBox.Name = "passwordAgainTextBox";
+            passwordAgainTextBox.Size = new Size(150, 31);
+            passwordAgainTextBox.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(187, 226);
+            label3.Name = "label3";
+            label3.Size = new Size(137, 25);
+            label3.TabIndex = 6;
+            label3.Text = "password again";
             // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(label3);
+            Controls.Add(passwordAgainTextBox);
+            Controls.Add(passwordTextBox);
+            Controls.Add(usernameTextBox);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
@@ -97,7 +118,9 @@
         private Button button1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox usernameTextBox;
+        private TextBox passwordTextBox;
+        private TextBox passwordAgainTextBox;
+        private Label label3;
     }
 }

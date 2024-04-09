@@ -31,5 +31,12 @@ namespace MiniProject1
                 MessageBox.Show("enter valid credentials");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Form4 steve = new Form4();
+            steve.Show();
+        }
     }
 }
