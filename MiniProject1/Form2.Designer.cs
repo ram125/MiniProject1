@@ -30,7 +30,6 @@
         {
             comboBoxCountries = new ComboBox();
             comboBoxTowns = new ComboBox();
-            button1 = new Button();
             adminButton = new Button();
             SuspendLayout();
             // 
@@ -50,24 +49,15 @@
             comboBoxTowns.Size = new Size(182, 33);
             comboBoxTowns.TabIndex = 1;
             // 
-            // button1
-            // 
-            button1.Location = new Point(367, 235);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // adminButton
             // 
-            adminButton.Location = new Point(367, 340);
+            adminButton.Location = new Point(369, 253);
             adminButton.Name = "adminButton";
-            adminButton.Size = new Size(112, 34);
+            adminButton.Size = new Size(142, 34);
             adminButton.TabIndex = 3;
-            adminButton.Text = "admin";
+            adminButton.Text = "make changes";
             adminButton.UseVisualStyleBackColor = true;
+            adminButton.Click += adminButton_Click_1;
             // 
             // Form2
             // 
@@ -75,7 +65,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(adminButton);
-            Controls.Add(button1);
             Controls.Add(comboBoxTowns);
             Controls.Add(comboBoxCountries);
             Name = "Form2";
@@ -87,7 +76,6 @@
 
         private ComboBox comboBoxCountries;
         private ComboBox comboBoxTowns;
-        private Button button1;
         private Button adminButton;
     }
 }

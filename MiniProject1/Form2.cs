@@ -43,7 +43,7 @@ namespace MiniProject1
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Tourism;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(@"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True"))
                 {
                     string query = "SELECT CountryName FROM Country";
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -68,16 +68,16 @@ namespace MiniProject1
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Tourism;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(@"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True"))
                 {
-                    string query = "SELECT TownName FROM Towns";
+                    string query = "SELECT CapitalName FROM Capital";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            comboBoxTowns.Items.Add(reader["TownName"].ToString());
+                            comboBoxTowns.Items.Add(reader["CapitalName"].ToString());
                         }
                         reader.Close();
                     }
@@ -89,15 +89,15 @@ namespace MiniProject1
             }
         }
 
-        private void adminButton_Click(object sender, EventArgs e)
+        private void adminButton_Click_1(object sender, EventArgs e)
         {
-
-            Form1 loginForm = new Form1();
+            Form3 loginForm = new Form3();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                Form1 form1 = new Form1();
-                form1.Show();
+                Form3 form3 = new Form3();
+                form3.Show();
             }
+
         }
     }
 }

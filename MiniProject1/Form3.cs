@@ -23,9 +23,9 @@ namespace MiniProject1
         {
             if (!string.IsNullOrWhiteSpace(townTextBox.Text) && !string.IsNullOrWhiteSpace(replacedTownTextBox.Text))
             {
-                using (SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Tourism;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True"))
                 {
-                    using (SqlCommand cmd = new SqlCommand("UPDATE Towns SET TownName = @city WHERE TownName = @replacedCity", con))
+                    using (SqlCommand cmd = new SqlCommand("UPDATE Capital SET CapitalName = @replacedCity WHERE CapitalName = @city", con))
                     {
                         cmd.Parameters.AddWithValue("@city", townTextBox.Text);
                         cmd.Parameters.AddWithValue("@replacedCity", replacedTownTextBox.Text);
@@ -35,7 +35,7 @@ namespace MiniProject1
 
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Town updated successfully");
+                            MessageBox.Show("Capital updated successfully");
                             townTextBox.Clear();
                             replacedTownTextBox.Clear();
                         }
@@ -56,9 +56,9 @@ namespace MiniProject1
         {
             if (!string.IsNullOrWhiteSpace(townTextBox.Text))
             {
-                using (SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Tourism;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True"))
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Towns (TownName) VALUES (@city)", con))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Capital (CapitalName) VALUES (@city)", con))
                     {
                         cmd.Parameters.AddWithValue("@city", townTextBox.Text);
                         con.Open();
@@ -79,9 +79,9 @@ namespace MiniProject1
         {
             if (!string.IsNullOrWhiteSpace(townTextBox.Text))
             {
-                using (SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Tourism;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection(@"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True"))
                 {
-                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Towns WHERE TownName = @city", con))
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM Capital WHERE CapitalName = @city", con))
                     {
                         cmd.Parameters.AddWithValue("@city", townTextBox.Text);
                         con.Open();
