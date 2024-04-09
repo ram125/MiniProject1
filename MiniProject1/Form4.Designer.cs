@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            RegisterButton = new Button();
             label1 = new Label();
             label2 = new Label();
             usernameTextBox = new TextBox();
@@ -37,15 +37,15 @@
             label3 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // RegisterButton
             // 
-            button1.Location = new Point(353, 267);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 0;
-            button1.Text = "register";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            RegisterButton.Location = new Point(353, 267);
+            RegisterButton.Name = "RegisterButton";
+            RegisterButton.Size = new Size(112, 34);
+            RegisterButton.TabIndex = 0;
+            RegisterButton.Text = "register";
+            RegisterButton.UseVisualStyleBackColor = true;
+            RegisterButton.Click += RegisterButton_Click;
             // 
             // label1
             // 
@@ -106,7 +106,7 @@
             Controls.Add(usernameTextBox);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(RegisterButton);
             Name = "Form4";
             Text = "Form4";
             ResumeLayout(false);
@@ -115,7 +115,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button RegisterButton;
         private Label label1;
         private Label label2;
         private TextBox usernameTextBox;

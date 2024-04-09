@@ -19,11 +19,6 @@ namespace MiniProject1
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             string username = usernameTextBox.Text;
