@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Text;
 using System.Security.Cryptography;
+using System.ComponentModel;
 
 namespace MiniProject1
 {
@@ -31,7 +32,7 @@ namespace MiniProject1
                 using (SqlConnection con = new SqlConnection(@"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True"))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT 1 FROM users WHERE username = @username", con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE username = @username", con);
                     cmd.Parameters.AddWithValue("@username", username);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.SelectCommand = cmd;
@@ -48,6 +49,10 @@ namespace MiniProject1
                             DialogResult = DialogResult.OK;
                             Form2 steve = new Form2(false);
                             steve.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("wrong password");
                         }
                     }
                     else
