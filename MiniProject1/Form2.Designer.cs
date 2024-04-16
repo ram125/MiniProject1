@@ -31,12 +31,14 @@
             comboBoxCountries = new ComboBox();
             comboBoxTowns = new ComboBox();
             adminButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // comboBoxCountries
             // 
             comboBoxCountries.FormattingEnabled = true;
-            comboBoxCountries.Location = new Point(208, 116);
+            comboBoxCountries.Location = new Point(12, 43);
             comboBoxCountries.Name = "comboBoxCountries";
             comboBoxCountries.Size = new Size(182, 33);
             comboBoxCountries.TabIndex = 0;
@@ -44,14 +46,14 @@
             // comboBoxTowns
             // 
             comboBoxTowns.FormattingEnabled = true;
-            comboBoxTowns.Location = new Point(468, 116);
+            comboBoxTowns.Location = new Point(224, 43);
             comboBoxTowns.Name = "comboBoxTowns";
             comboBoxTowns.Size = new Size(182, 33);
             comboBoxTowns.TabIndex = 1;
             // 
             // adminButton
             // 
-            adminButton.Location = new Point(369, 253);
+            adminButton.Location = new Point(12, 388);
             adminButton.Name = "adminButton";
             adminButton.Size = new Size(142, 34);
             adminButton.TabIndex = 3;
@@ -59,16 +61,26 @@
             adminButton.UseVisualStyleBackColor = true;
             adminButton.Click += adminButton_Click_1;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(496, 215);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(150, 75);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(adminButton);
             Controls.Add(comboBoxTowns);
             Controls.Add(comboBoxCountries);
             Name = "Form2";
             Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -77,5 +89,6 @@
         private ComboBox comboBoxCountries;
         private ComboBox comboBoxTowns;
         private Button adminButton;
+        private PictureBox pictureBox1;
     }
 }

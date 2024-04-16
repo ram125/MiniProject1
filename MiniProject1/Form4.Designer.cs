@@ -35,6 +35,9 @@
             passwordTextBox = new TextBox();
             passwordAgainTextBox = new TextBox();
             label3 = new Label();
+            browseButton = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // RegisterButton
@@ -95,11 +98,30 @@
             label3.TabIndex = 6;
             label3.Text = "password again";
             // 
+            // browseButton
+            // 
+            browseButton.Location = new Point(591, 294);
+            browseButton.Name = "browseButton";
+            browseButton.Size = new Size(112, 34);
+            browseButton.TabIndex = 7;
+            browseButton.Text = "chose pic";
+            browseButton.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(553, 119);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(150, 75);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
+            Controls.Add(browseButton);
             Controls.Add(label3);
             Controls.Add(passwordAgainTextBox);
             Controls.Add(passwordTextBox);
@@ -109,6 +131,7 @@
             Controls.Add(RegisterButton);
             Name = "Form4";
             Text = "Form4";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,5 +145,7 @@
         private TextBox passwordTextBox;
         private TextBox passwordAgainTextBox;
         private Label label3;
+        private Button browseButton;
+        private PictureBox pictureBox1;
     }
 }

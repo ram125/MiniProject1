@@ -73,7 +73,43 @@ namespace MiniProject1
             }
         }
 
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
+        private byte[] savePhoto()
+        {
+            MemoryStream stream = new MemoryStream();
+            pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
+            return stream.GetBuffer();
+        }
 
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(@"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True"))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Photos VALUES (@photo)", con);//"INSERT INTO (photo) Photos VALUES (@photo)"
+                    cmd.Parameters.AddWithValue("@photo", savePhoto());
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Photo was saved");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL error occurred. Please try again." + ex.Message, "SQL error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unknown error occurred. Please try again." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         string hashPassword(string password)
         {
             SHA256 hashAlgorithm = SHA256.Create();

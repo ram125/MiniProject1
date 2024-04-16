@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,7 @@ namespace MiniProject1
 
         }
         private bool isAdmin;
+        private String index;
         public Form2(bool isAdmin)
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace MiniProject1
                 adminButton.Enabled = false;
                 adminButton.Visible = false;
             }
+            this.index = "0";//this.index = index;//received from prev form
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,6 +89,26 @@ namespace MiniProject1
             catch (Exception ex)
             {
                 MessageBox.Show("Error retrieving towns from the database: " + ex.Message);
+            }
+        }
+        private Image GetImage(byte[] image)
+        {
+            MemoryStream ms = new MemoryStream(image);
+            return Image.FromStream(ms);
+        }
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=LAB108PC12\SQLEXPRESS;Initial Catalog=Tourism;Integrated Security=True";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * from Photos where id = @id", con);
+                cmd.Parameters.AddWithValue("@id", int.Parse(index));
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataTable resultTable = new DataTable();
+                adapter.Fill(resultTable);
+                pictureBox1.Image = GetImage((byte[])resultTable.Rows[0]["photo"]);
             }
         }
 
